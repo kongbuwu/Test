@@ -1,16 +1,13 @@
 package com.example.test.home;
 
-import android.app.Activity;
-import android.content.SyncStatusObserver;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.example.test.myapplication.R;
 
-import java.util.Collections;
+import until.ToastManager;
 
 public class MainActivity extends BaseActivity{
 
@@ -21,7 +18,7 @@ public class MainActivity extends BaseActivity{
         System.out.print("fsaf");
 
         Log.e("dsa", "dsads");
-
+        Build.getRadioVersion();// 获取手机的一些 信息
     }
 
 
@@ -38,6 +35,16 @@ public class MainActivity extends BaseActivity{
     @Override
     protected void initListener() {
 
+    }
+
+    @Override
+    protected void succes() {
+
+    }
+
+    @Override
+    protected void faile() {
+        ToastManager.showShortText(MainActivity.this,"请检查网络环境");
     }
 
     @Override

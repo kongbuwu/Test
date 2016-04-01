@@ -11,6 +11,8 @@ import com.example.test.myapplication.R;
 
 import java.util.zip.Inflater;
 
+import until.NetUtils;
+
 /**
  * Created by xtl on 2016/3/25.
  * 基类
@@ -23,6 +25,12 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         init();
         initView();
         initListener();
+
+        if( NetUtils.isConnected(BaseActivity.this)==true){
+            succes();
+        }else{
+            faile();
+        }
     }
 
     private  void init(){
@@ -32,4 +40,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     protected abstract int getlayout();
     protected abstract void initView();
     protected abstract void initListener();
+    protected abstract void succes();
+    protected abstract void faile();
 }
